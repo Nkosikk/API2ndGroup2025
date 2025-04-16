@@ -19,6 +19,14 @@ public class ReqRes {
                 .statusCode(201);
 
     }
+    @Description("As an api user, I want to send put request that will update employee")
+    public void updateEmployeeTest(){
+        ReqResRequestBuilder.updateEmployeeRequest()
+                .then()
+                .log().all()
+                .assertThat()
+                .statusCode(200);
+    }
 
 
 
