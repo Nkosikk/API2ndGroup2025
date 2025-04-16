@@ -28,6 +28,15 @@ public class ReqRes {
                 .statusCode(200);
     }
 
+    @Description("As an api user, I want to send patch request that will update employee")
+    public void patchEmployeeTest(){
+        ReqResRequestBuilder.PatchEmployeeRequest()
+                .then()
+                .log().all()
+                .assertThat()
+                .statusCode(200);
+    }
+
 
 
 }
