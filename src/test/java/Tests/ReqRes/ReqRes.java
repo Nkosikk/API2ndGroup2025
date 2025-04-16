@@ -5,6 +5,8 @@ import io.qameta.allure.Severity;
 import jdk.jfr.Description;
 import org.testng.annotations.Test;
 
+import static RequestBuilder.ReqResRequestBuilder.employeeNumber;
+
 @Test
 public class ReqRes {
 
@@ -17,5 +19,7 @@ public class ReqRes {
                 .statusCode(201);
 
     }
+
+
 
 }

@@ -8,9 +8,10 @@ import static io.restassured.RestAssured.given;
 
 public class ReqResRequestBuilder {
 
+    public static String employeeNumber;
     public static Response createEmployeeRequest(){
 
-        return given().contentType("application/json")
+        Response response = given().contentType("application/json")
                 .when()
                 .body(createEmployeeResponse())
                 .log().all()
@@ -18,5 +19,10 @@ public class ReqResRequestBuilder {
                 .then()
                 .extract().response();
 
+        employeeNumber = response.jsonPath().getString("id");
+
+        return response;
     }
+
+
 }
