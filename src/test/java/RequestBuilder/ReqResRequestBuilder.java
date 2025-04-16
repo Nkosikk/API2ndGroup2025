@@ -2,8 +2,7 @@ package RequestBuilder;
 
 import io.restassured.response.Response;
 
-import static PayloadBuilder.ReqResPayloadBuilder.createEmployeeResponse;
-import static PayloadBuilder.ReqResPayloadBuilder.updateEmployeeResponse;
+import static PayloadBuilder.ReqResPayloadBuilder.*;
 import static common.BasePaths.reqRes_baseUrl;
 import static io.restassured.RestAssured.given;
 
@@ -31,6 +30,19 @@ public class ReqResRequestBuilder {
                 .body(updateEmployeeResponse())
                 .log().all()
                 .put(reqRes_baseUrl+"/api/users/"+employeeNumber)
+                .then()
+                .extract().response();
+
+        return response;
+    }
+
+    public static Response PatchEmployeeRequest(){
+
+        Response response = given().contentType("application/json")
+                .when()
+                .body(PatchEmployeeResponse())
+                .log().all()
+                .patch(reqRes_baseUrl+"/api/users/"+employeeNumber)
                 .then()
                 .extract().response();
 
