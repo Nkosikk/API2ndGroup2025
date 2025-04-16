@@ -14,4 +14,13 @@ public class ReqResPayloadBuilder {
 
         return jsonObject;
     }
+    public static JSONObject updateEmployeeResponse(){
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name","Sibu");
+        jsonObject.put("job","Senior Engineer");
+        jsonObject.put("Department","IT");
+
+        return jsonObject;
+    }
 }
