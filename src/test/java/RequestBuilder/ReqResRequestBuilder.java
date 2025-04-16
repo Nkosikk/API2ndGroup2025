@@ -48,6 +48,18 @@ public class ReqResRequestBuilder {
 
         return response;
     }
+    public static Response deleteEmployeeRequest(){
+
+        Response response = given().contentType("application/json")
+                .when()
+                .log().all()
+                .delete(reqRes_baseUrl+"/api/users/"+employeeNumber)
+                .then()
+                .extract().response();
+
+        return response;
+    }
+
 
 
 }
