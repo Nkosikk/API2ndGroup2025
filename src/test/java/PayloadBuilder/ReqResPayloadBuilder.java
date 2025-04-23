@@ -1,10 +1,8 @@
 package PayloadBuilder;
 
 import com.github.javafaker.Faker;
-import common.TestDataGenerator;
-import io.restassured.response.Response;
+import Common.TestDataGenerator;
 import org.json.simple.JSONObject;
-import org.testng.annotations.Test;
 
 public class ReqResPayloadBuilder {
 

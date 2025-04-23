@@ -1,4 +1,4 @@
-package common;
+package Common;
 
 import com.github.javafaker.Faker;
 
