@@ -11,7 +11,7 @@ public class WeatherRequestBuilder {
         Response response = given().contentType("application/json")
                 .when()
                 .log().all()
-                .get("https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY")
+                .post("weather station.com/api/v1/stations")
                 .then()
                 .extract().response();
 
@@ -21,5 +21,17 @@ public class WeatherRequestBuilder {
     }
 
     public static <T, R> void creatWeatherRequest() {
+    }
+    public static Response getWeatherRequest() {
+        Response response = given().contentType("application/json")
+                .when()
+                .log().all()
+                .get("https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY")
+                .then()
+                .extract().response();
+
+        cityName = response.jsonPath().getString("San Francisco Test Station");
+
+        return response;
     }
 }
