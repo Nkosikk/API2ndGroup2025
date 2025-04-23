@@ -3,7 +3,7 @@ package RequestBuilder;
 import io.restassured.response.Response;
 
 import static PayloadBuilder.ReqResPayloadBuilder.*;
-import static common.BasePaths.reqRes_baseUrl;
+import static Common.BasePaths.reqRes_baseURI;
 import static io.restassured.RestAssured.given;
 
 public class ReqResRequestBuilder {
@@ -15,7 +15,7 @@ public class ReqResRequestBuilder {
                 .when()
                 .body(createEmployeeResponse())
                 .log().all()
-                .post(reqRes_baseUrl+"/api/users")
+                .post(reqRes_baseURI +"/api/users")
                 .then()
                 .extract().response();
 
@@ -29,7 +29,7 @@ public class ReqResRequestBuilder {
                 .when()
                 .body(updateEmployeeResponse())
                 .log().all()
-                .put(reqRes_baseUrl+"/api/users/"+employeeNumber)
+                .put(reqRes_baseURI +"/api/users/"+employeeNumber)
                 .then()
                 .extract().response();
 
@@ -42,7 +42,7 @@ public class ReqResRequestBuilder {
                 .when()
                 .body(PatchEmployeeResponse())
                 .log().all()
-                .patch(reqRes_baseUrl+"/api/users/"+employeeNumber)
+                .patch(reqRes_baseURI +"/api/users/"+employeeNumber)
                 .then()
                 .extract().response();
 
@@ -53,7 +53,7 @@ public class ReqResRequestBuilder {
         Response response = given().contentType("application/json")
                 .when()
                 .log().all()
-                .delete(reqRes_baseUrl+"/api/users/"+employeeNumber)
+                .delete(reqRes_baseURI +"/api/users/"+employeeNumber)
                 .then()
                 .extract().response();
 
