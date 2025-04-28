@@ -59,4 +59,19 @@ public class OpenWeatherRequestBuilder {
         return response;
 
     }
+
+    public static Response DeleteWeatherStationResponse() {
+
+        Response response = given().contentType("application/json")
+                .when()
+                .queryParams("appid", "13b8575623d6b7ed2faac869037ff7b3")
+                .log()
+                .all()
+                .delete(openWeather_baseUrl + "/data/3.0/stations/" + stationID)
+                .then()
+                .extract().response();
+
+        return response;
+
+    }
 }
