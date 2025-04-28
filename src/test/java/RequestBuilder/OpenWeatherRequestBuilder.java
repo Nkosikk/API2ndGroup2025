@@ -1,10 +1,12 @@
 package RequestBuilder;
 
+import PayloadBuilder.OpenWeatherPayloadBuilder;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 import static Common.BasePaths.openWeather_baseUrl;
 import static Common.BasePaths.reqRes_baseUrl;
+import static PayloadBuilder.OpenWeatherPayloadBuilder.createNewWeatherStationObject;
 import static PayloadBuilder.ReqResPayloadBuilder.createEmployeeResponse;
 import static io.restassured.RestAssured.given;
 
@@ -15,8 +17,8 @@ public class OpenWeatherRequestBuilder {
 
         Response response = given().contentType("application/json")
                 .when()
-                .queryParams("appid", "1589ee5727295072e2272d60dfc6904")
-                .body(createNewWeatherStationResponse())
+                .queryParams("appid", "13b8575623d6b7ed2faac869037ff7b3")
+                .body(createNewWeatherStationObject())
                 .log()
                 .all()
                 .post(openWeather_baseUrl + "/data/3.0/stations")
