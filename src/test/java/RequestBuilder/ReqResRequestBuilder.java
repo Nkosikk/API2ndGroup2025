@@ -14,6 +14,7 @@ public class ReqResRequestBuilder {
 
         Response response = given().contentType("application/json")
                 .when()
+                .header("x-api-key","reqres-free-v1")
                 .body(createEmployeeResponse())
                 .log().all()
                 .post(reqRes_baseUrl + "/api/users")
@@ -29,6 +30,7 @@ public class ReqResRequestBuilder {
 
         Response response = given().contentType("application/json")
                 .when()
+                .header("x-api-key","reqres-free-v1")
                 .body(updateEmployeeResponse())
                 .log().all()
                 .put(reqRes_baseUrl + "/api/users/" + employeeNumber)
@@ -42,6 +44,7 @@ public class ReqResRequestBuilder {
 
         Response response = given().contentType("application/json")
                 .when()
+                .header("x-api-key","reqres-free-v1")
                 .body(PatchEmployeeResponse())
                 .log().all()
                 .patch(reqRes_baseUrl+"/api/users/"+employeeNumber)
@@ -54,6 +57,7 @@ public class ReqResRequestBuilder {
 
         Response response = given().contentType("application/json")
                 .when()
+                .header("x-api-key","reqres-free-v1")
                 .log().all()
                 .delete(reqRes_baseUrl+"/api/users/"+employeeNumber)
                 .then()
