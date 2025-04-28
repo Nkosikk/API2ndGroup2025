@@ -2,8 +2,9 @@ package Tests.Weather;
 
 import PayloadBuilder.OpenWeatherPayloadBuilder;
 import RequestBuilder.OpenWeatherRequestBuilder;
+import jdk.jfr.Description;
 import org.json.simple.JSONObject;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 public class OpenWeather {
     @Test
@@ -18,5 +19,16 @@ public class OpenWeather {
                 .statusLine("HTTP/1.1 201 Created");
 //                .body("message",org.hamcrest.Matchers.notNullValue());
 
+    }
+    @Description("As an api user, I want to update weather station")
+    @Test(dependsOnMethods = "testWeatherStation()")
+    public void UpdateWeatherStationTests(){
+        OpenWeatherRequestBuilder.UpdateWeatherStationResponse()
+                .then()
+                .log()
+                .all()
+                .assertThat()
+                .statusCode(200)
+                .statusLine("HTTP/1.1 200 OK");
     }
 }
