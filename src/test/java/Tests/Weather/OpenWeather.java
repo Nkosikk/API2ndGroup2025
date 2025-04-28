@@ -31,4 +31,27 @@ public class OpenWeather {
                 .statusCode(200)
                 .statusLine("HTTP/1.1 200 OK");
     }
+    @Description("As an api user, I want to Get a weather station")
+    @Test(dependsOnMethods = "UpdateWeatherStationTests()")
+    public void GetWeatherStationTests(){
+        OpenWeatherRequestBuilder.GetWeatherStationResponse()
+                .then()
+                .log()
+                .all()
+                .assertThat()
+                .statusCode(200)
+                .statusLine("HTTP/1.1 200 OK");
+    }
+
+    @Description("As an api user, I want to delete a weather station")
+    @Test(dependsOnMethods = "GetWeatherStationTests()")
+    public void DeleteWeatherStationTests(){
+        OpenWeatherRequestBuilder.DeleteWeatherStationResponse()
+                .then()
+                .log()
+                .all()
+                .assertThat()
+                .statusCode(204)
+                .statusLine("HTTP/1.1 204 No Content");
+    }
 }
