@@ -7,7 +7,7 @@ public class BasePaths {
 
     public static String Dogs_baseUrl = "https://dog.ceo/api";
 
-    public static String WeatherStation_baseUrl = " http://api.openweathermap.org";
+    public static String WeatherStation_baseUrl = "http://api.openweathermap.org";
 
 
 }
