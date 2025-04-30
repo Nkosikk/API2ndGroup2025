@@ -14,7 +14,8 @@ public class ReqRes {
     public void createEmployeeTest(){
         ReqResRequestBuilder.createEmployeeRequest()
                 .then()
-                .log().all()
+                .log()
+                .all()
                 .assertThat()
                 .statusCode(201);
 

@@ -3,7 +3,8 @@ package RequestBuilder;
 import io.restassured.response.Response;
 
 import static PayloadBuilder.ReqResPayloadBuilder.*;
-import static Common.BasePaths.reqRes_baseUrl;
+
+import static common.BasePaths.reqRes_baseUrl;
 import static io.restassured.RestAssured.given;
 
 public class ReqResRequestBuilder {

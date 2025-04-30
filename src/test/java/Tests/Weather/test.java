@@ -1,6 +1,5 @@
 package Tests.Weather;
 
-import RequestBuilder.WeatherRequestBuilder; // Import the WeatherRequestBuilder class
 import jdk.jfr.Description;
 import org.testng.annotations.Test;
 @Test
