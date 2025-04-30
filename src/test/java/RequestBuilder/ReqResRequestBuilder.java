@@ -3,19 +3,20 @@ package RequestBuilder;
 import io.restassured.response.Response;
 
 import static PayloadBuilder.ReqResPayloadBuilder.*;
-import static Common.BasePaths.reqRes_baseURI;
+import static Common.BasePaths.reqRes_baseUrl;
 import static io.restassured.RestAssured.given;
 
 public class ReqResRequestBuilder {
 
     public static String employeeNumber;
-    public static Response createEmployeeRequest(){
+
+    public static Response createEmployeeRequest() {
 
         Response response = given().contentType("application/json")
                 .when()
                 .body(createEmployeeResponse())
                 .log().all()
-                .post(reqRes_baseURI +"/api/users")
+                .post(reqRes_baseUrl + "/api/users")
                 .then()
                 .extract().response();
 
@@ -23,13 +24,14 @@ public class ReqResRequestBuilder {
 
         return response;
     }
-    public static Response updateEmployeeRequest(){
+
+    public static Response updateEmployeeRequest() {
 
         Response response = given().contentType("application/json")
                 .when()
                 .body(updateEmployeeResponse())
                 .log().all()
-                .put(reqRes_baseURI +"/api/users/"+employeeNumber)
+                .put(reqRes_baseUrl + "/api/users/" + employeeNumber)
                 .then()
                 .extract().response();
 
@@ -42,7 +44,7 @@ public class ReqResRequestBuilder {
                 .when()
                 .body(PatchEmployeeResponse())
                 .log().all()
-                .patch(reqRes_baseURI +"/api/users/"+employeeNumber)
+                .patch(reqRes_baseUrl+"/api/users/"+employeeNumber)
                 .then()
                 .extract().response();
 
@@ -53,7 +55,7 @@ public class ReqResRequestBuilder {
         Response response = given().contentType("application/json")
                 .when()
                 .log().all()
-                .delete(reqRes_baseURI +"/api/users/"+employeeNumber)
+                .delete(reqRes_baseUrl+"/api/users/"+employeeNumber)
                 .then()
                 .extract().response();
 
