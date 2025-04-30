@@ -16,10 +16,11 @@ public class OpenWeather {
                 .all()
                 .assertThat()
                 .statusCode(201)
-                .statusLine("HTTP/1.1 201 Created");
-//                .body("message",org.hamcrest.Matchers.notNullValue());
+                .statusLine("HTTP/1.1 201 Created")
+                .body("name",org.hamcrest.Matchers.equalToIgnoringCase(OpenWeatherPayloadBuilder.weatherStation));
 
     }
+
     @Description("As an api user, I want to update weather station")
     @Test(dependsOnMethods = "testWeatherStation()")
     public void UpdateWeatherStationTests(){
@@ -29,8 +30,10 @@ public class OpenWeather {
                 .all()
                 .assertThat()
                 .statusCode(200)
-                .statusLine("HTTP/1.1 200 OK");
+                .statusLine("HTTP/1.1 200 OK")
+                .body("name",org.hamcrest.Matchers.equalToIgnoringCase(OpenWeatherPayloadBuilder.UpdateStation));
     }
+
     @Description("As an api user, I want to Get a weather station")
     @Test(dependsOnMethods = "UpdateWeatherStationTests()")
     public void GetWeatherStationTests(){
