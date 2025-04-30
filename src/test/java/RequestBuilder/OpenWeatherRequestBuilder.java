@@ -2,12 +2,9 @@ package RequestBuilder;
 
 import PayloadBuilder.OpenWeatherPayloadBuilder;
 import io.restassured.response.Response;
-import org.testng.annotations.Test;
 
 import static Common.BasePaths.openWeather_baseUrl;
-import static Common.BasePaths.reqRes_baseUrl;
 import static PayloadBuilder.OpenWeatherPayloadBuilder.createNewWeatherStationObject;
-import static PayloadBuilder.ReqResPayloadBuilder.createEmployeeResponse;
 import static io.restassured.RestAssured.given;
 
 public class OpenWeatherRequestBuilder {
@@ -30,6 +27,7 @@ public class OpenWeatherRequestBuilder {
         return response;
 
     }
+
     public static Response UpdateWeatherStationResponse() {
 
         Response response = given().contentType("application/json")
@@ -45,6 +43,7 @@ public class OpenWeatherRequestBuilder {
         return response;
 
     }
+
     public static Response GetWeatherStationResponse() {
 
         Response response = given().contentType("application/json")
