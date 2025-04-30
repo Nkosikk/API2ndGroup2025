@@ -14,7 +14,7 @@ public class OpenWeatherRequestBuilder {
     public static Response createNewWeatherStationResponse() {
         Response response = given().contentType("application/json")
                 .when()
-                .queryParams("appid", "1589ee5727295072e2272d60dfc6904")
+                .queryParams("appid", "13b8575623d6b7ed2faac869037ff7b3")
                 .body(updateWeatherStationObject())
                 .log()
                 .all()
