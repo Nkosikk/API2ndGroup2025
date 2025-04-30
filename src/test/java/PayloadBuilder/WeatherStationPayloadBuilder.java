@@ -9,7 +9,7 @@ public class WeatherStationPayloadBuilder {
 //    using the json simple library instead of string
 //    populate object with information, that is keys and the values of the keys
 //    jsonObject.put("key", "value"); // Adds a key-value pair to the JSON object
-       @Test
+
         public static JSONObject createWeatherStationPayload() {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("external_id", "MM_TEST001");
@@ -22,6 +22,23 @@ public class WeatherStationPayloadBuilder {
             return jsonObject;
 
         }
+
+    public static JSONObject updateWeatherStationPayload() {
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("external_id", "Test101");
+        jsonObject.put("name", "Updated Station");
+        jsonObject.put("latitude", -26.2041);
+        jsonObject.put("longitude", 28.0473);
+        jsonObject.put("altitude", 1550);
+        return jsonObject;
+    }
+
+    public static JSONObject deleteWeatherStationPayload() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("external_id", "Test101"); // Example key-value pair
+        return jsonObject;
+    }
     }
 
 

@@ -2,13 +2,10 @@ package RequestBuilder;
 
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
-
 import PayloadBuilder.WeatherStationPayloadBuilder;
-
 import static common.BasePaths.WeatherStation_baseUrl;
 import static PayloadBuilder.WeatherStationPayloadBuilder.createWeatherStationPayload;
 import static PayloadBuilder.ReqResPayloadBuilder.createEmployeeResponse;
-
 import static io.restassured.RestAssured.given;
 
 
@@ -17,12 +14,13 @@ import static io.restassured.RestAssured.given;
 
 public class WeatherStationRequestBuilder {
     public static String stationID;
+
     public static Response createWeatherStationRequest() {
 
         Response response = given().contentType("application/json")
                 .when()
                .queryParams("appid", "b1589ee5727295072e2272d60dfc6904")// Add the API key as a query parameter
-                .body(WeatherStationRequestBuilder.createWeatherStationRequest())///this is  calling the method in the builder class
+                .body(createWeatherStationPayload())//this is  calling the method in the builder class
                 .log().all()
                 .post(WeatherStation_baseUrl+"/data/3.0/stations")//the base url variable  called from Base
                 .then()
@@ -39,13 +37,12 @@ public class WeatherStationRequestBuilder {
         Response response = given().contentType("application/json")
                 .when()
                 .queryParams("appid", "b1589ee5727295072e2272d60dfc6904")
-                .body(WeatherStationRequestBuilder.updateWeatherStationRequest())//this is  calling the method in the builder class
+                .body(WeatherStationPayloadBuilder.updateWeatherStationPayload())//this is  calling the method in the builder class
                 .log().all()
-                .post(WeatherStation_baseUrl+"/data/3.0/stations/" + stationID)//the base url variable  called from Base
+                .put(WeatherStation_baseUrl+"/data/3.0/stations/" + stationID)//the base url variable  called from Base
                 .then()
-                .log().all()
                 .extract().response();
-        WeatherStationRequestBuilder.createWeatherStationRequest()
+
 
         return response;
     }
@@ -56,7 +53,6 @@ public class WeatherStationRequestBuilder {
         Response response = given().contentType("application/json")
                 .when()
                 .queryParams("appid", "b1589ee5727295072e2272d60dfc6904")
-                .body(WeatherStationRequestBuilder.getWeatherStationResponse())//this is  calling the method in the builder class
                 .log()
                 .all()
                 .get(WeatherStation_baseUrl+ "/data/3.0/stations/" + stationID)
@@ -67,15 +63,28 @@ public class WeatherStationRequestBuilder {
 
     }
 
+//    public static Response getStationMeasurementsResponse() {
+//
+//        Response response = given().contentType("application/json")
+//                .when()
+//                .queryParams("appid", "b1589ee5727295072e2272d60dfc6904")
+//                .log()
+//                .all()
+//                .get(WeatherStation_baseUrl+ "/data/3.0/measurements?station_id=...&type=...&limit=..." + stationID)
+//                .then()
+//                .extract().response();
+//
+//        return response;
+
+   // }
 
     public static Response deleteWeatherStationRequest() {
 
         Response response = given().contentType("application/json")
                 .when()
                 .queryParams("appid", "b1589ee5727295072e2272d60dfc6904")
-                .body(WeatherStationRequestBuilder.deleteWeatherStationRequest())//this is  calling the method in the builder class
                 .log().all()
-                .post(WeatherStation_baseUrl+"/data/3.0/stations/" + stationID)//the base url variable  called from Base
+                .delete(WeatherStation_baseUrl+"/data/3.0/stations/" + stationID)//the base url variable  called from Base
                 .then()
                 .log().all()
                 .extract().response();
