@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 public class WeatherStation {
 
     @Description("As an API user, I want to send a request to create a new weather station and verify the response")
+
     public void createWeatherStationTest(){
         WeatherStationRequestBuilder.createWeatherStationRequest()// we need to do assertions/validations
                 .then()//keyword for validation
@@ -20,7 +21,7 @@ public class WeatherStation {
     }
 
     @Description("As an api user, I want to send put request that will update station name")
-    @Test(dependsOnMethods = "createWeatherStationTest")
+    @Test(dependsOnMethods = "createWeatherStationTest()")
     public void updateWeatherStationTest(){
         WeatherStationRequestBuilder.updateWeatherStationRequest()
                 .then()
@@ -31,15 +32,15 @@ public class WeatherStation {
 
     @Description("As an api user, I want to send patch request that will update employee")
     @Test(dependsOnMethods = "updateWeatherStationTest()")
-    public void patchWeatherStationTest(){
-        WeatherStationRequestBuilder.patchWeatherStationRequest()
+    public void checkWeatherStationTest(){
+        WeatherStationRequestBuilder.getWeatherStationResponse()
                 .then()
                 .log().all()
                 .assertThat()
                 .statusCode(200);
     }
     @Description("As an api user, I want to send delete request that will delete employee")
-    @Test(dependsOnMethods = "patchWeatherStationTest()")
+    @Test(dependsOnMethods = "getWeatherStationTest()")
     public void deleteWeatherStationTest(){
         WeatherStationRequestBuilder.deleteWeatherStationRequest()
                 .then()
