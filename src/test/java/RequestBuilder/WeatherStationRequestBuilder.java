@@ -10,7 +10,7 @@ public class WeatherStationRequestBuilder {
 
     public static Response createWeatherStationRequest() {
 
-        return given().contentType("application/json")
+        Response response = given().contentType("application/json")
                 .when()
                .queryParams("appid", "b1589ee5727295072e2272d60dfc6904")// Add the API key as a query parameter
                 .body(createWeatherStationPayload())//this is  calling the method in the builder class
@@ -20,11 +20,15 @@ public class WeatherStationRequestBuilder {
                 .log().all()
                 .extract().response();
 
+        stationID = response.jsonPath().getString("ID");
+
+        return response;
+
     }
 
     public static Response updateWeatherStationRequest() {
 
-        return given().contentType("application/json")
+        Response response = given().contentType("application/json")
                 .when()
                 .queryParams("appid", "b1589ee5727295072e2272d60dfc6904")
                 .body(createWeatherStationPayload())//this is  calling the method in the builder class
@@ -34,6 +38,9 @@ public class WeatherStationRequestBuilder {
                 .log().all()
                 .extract().response();
 
+        stationID = response.jsonPath().getString("ID");
+
+        return response;
     }
 
     public static Response patchWeatherStationRequest() {
