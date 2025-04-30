@@ -1,4 +1,5 @@
 package Tests.Dogs;
+
 import RequestBuilder.DogsRequestBuilder;
 import jdk.jfr.Description;
 import org.testng.annotations.Test;
@@ -7,7 +8,7 @@ import org.testng.annotations.Test;
 public class Dogs {
 
     @Description("Get a list of all breeds")
-    public  void listAllBreedsTest(){
+    public void listAllBreedsTest() {
         DogsRequestBuilder.listAllBreedsRequest().
                 then().
                 log().all().
@@ -17,36 +18,36 @@ public class Dogs {
 
     }
 
-    public void responseBodyTest(){
+    public void responseBodyTest() {
         DogsRequestBuilder.listAllBreedsRequest().
                 then().
                 log().all().
                 assertThat().
-                body("message",org.hamcrest.Matchers.notNullValue()).
-                body("status",org.hamcrest.Matchers.equalToIgnoringCase("Success"));
+                body("message", org.hamcrest.Matchers.notNullValue()).
+                body("status", org.hamcrest.Matchers.equalToIgnoringCase("Success"));
     }
 
     @Description("Get a random dog image")
-    public void randomDogImageTest(){
+    public void randomDogImageTest() {
         DogsRequestBuilder.randomDogImageRequest().
                 then().
                 log().all().
                 assertThat().
                 statusCode(200).
                 statusLine("HTTP/1.1 200 OK").
-                body("message",org.hamcrest.Matchers.notNullValue()).
-                body("status",org.hamcrest.Matchers.equalToIgnoringCase("Success")).
-                body("message",org.hamcrest.Matchers.containsString(".jpg"));
+                body("message", org.hamcrest.Matchers.notNullValue()).
+                body("status", org.hamcrest.Matchers.equalToIgnoringCase("Success")).
+                body("message", org.hamcrest.Matchers.containsString(".jpg"));
     }
-
-    public void listByBreedTest(){
+    @Description("Get a list of dog breeds")
+    public void listByBreedTest() {
         DogsRequestBuilder.byBreedRequest().
                 then().
                 log().all().
                 assertThat().
                 statusCode(200).
                 statusLine("HTTP/1.1 200 OK").
-                body("message",org.hamcrest.Matchers.notNullValue()).
-                body("status",org.hamcrest.Matchers.equalToIgnoringCase("success"));
+                body("message", org.hamcrest.Matchers.notNullValue()).
+                body("status", org.hamcrest.Matchers.equalToIgnoringCase("success"));
     }
 }

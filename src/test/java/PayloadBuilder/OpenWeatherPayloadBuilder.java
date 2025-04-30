@@ -2,8 +2,6 @@ package PayloadBuilder;
 
 import Common.TestDataGenerator;
 import com.github.javafaker.Faker;
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
 import org.json.simple.JSONObject;
 
 public class OpenWeatherPayloadBuilder {

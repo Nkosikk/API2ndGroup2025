@@ -1,6 +1,6 @@
 package RequestBuilder;
 import io.restassured.response.Response;
-import static Common.BasePaths.dogs_baseURI;
+import static Common.BasePaths.dogs_baseUrl;
 import static io.restassured.RestAssured.given;
 
 public class DogsRequestBuilder {
@@ -10,7 +10,7 @@ public class DogsRequestBuilder {
         Response response = given()
                 .when()
                 .log().all()
-                .get(dogs_baseURI +"/breeds/list/all")
+                .get(dogs_baseUrl +"/breeds/list/all")
                 .then()
                 .extract()
                 .response();
@@ -23,7 +23,7 @@ public class DogsRequestBuilder {
         return given()
                 .when()
                 .log().all()
-                .get(dogs_baseURI +"/breeds/image/random")
+                .get(dogs_baseUrl +"/breeds/image/random")
                 .then()
                 .extract().response();
     }
@@ -33,7 +33,7 @@ public class DogsRequestBuilder {
         return given()
                 .when()
                 .log().all()
-                .get(dogs_baseURI +"/breed/hound/images")
+                .get(dogs_baseUrl +"/breed/hound/images")
                 .then()
                 .extract().response();
     }

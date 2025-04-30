@@ -6,9 +6,9 @@ import org.json.simple.JSONObject;
 
 public class ReqResPayloadBuilder {
 
-     static String employeeName = TestDataGenerator.name;
-     static String jobTitle = TestDataGenerator.job;
-     static String companyName = TestDataGenerator.company;
+    static String employeeName = TestDataGenerator.name;
+    static String jobTitle = TestDataGenerator.job;
+    static String companyName = TestDataGenerator.company;
 
     public static JSONObject createEmployeeResponse() {
 
