@@ -13,7 +13,7 @@ public class ReqResRequestBuilder {
 
         Response response = given().contentType("application/json")
                 .when()
-                .body(createEmployeeResponse())
+                .body(createEmployeeObject())
                 .log().all()
                 .post(reqRes_baseUrl+"/api/users")
                 .then()
@@ -27,7 +27,7 @@ public class ReqResRequestBuilder {
 
         Response response = given().contentType("application/json")
                 .when()
-                .body(updateEmployeeResponse())
+                .body(updateEmployeObject())
                 .log().all()
                 .put(reqRes_baseUrl+"/api/users/"+employeeNumber)
                 .then()
@@ -40,7 +40,7 @@ public class ReqResRequestBuilder {
 
         Response response = given().contentType("application/json")
                 .when()
-                .body(PatchEmployeeResponse())
+                .body(PatchEmployeeObject())
                 .log().all()
                 .patch(reqRes_baseUrl+"/api/users/"+employeeNumber)
                 .then()

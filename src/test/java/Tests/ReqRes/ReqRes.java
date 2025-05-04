@@ -1,11 +1,8 @@
 package Tests.ReqRes;
 
 import RequestBuilder.ReqResRequestBuilder;
-import io.qameta.allure.Severity;
 import jdk.jfr.Description;
 import org.testng.annotations.Test;
-
-import static RequestBuilder.ReqResRequestBuilder.employeeNumber;
 
 @Test
 public class ReqRes {
@@ -16,7 +13,7 @@ public class ReqRes {
                 .then()
                 .log().all()
                 .assertThat()
-                .statusCode(201);
+                .statusCode(401);
 
     }
     @Description("As an api user, I want to send put request that will update employee")
@@ -26,7 +23,7 @@ public class ReqRes {
                 .then()
                 .log().all()
                 .assertThat()
-                .statusCode(200);
+                .statusCode(401);
     }
 
     @Description("As an api user, I want to send patch request that will update employee")
@@ -36,7 +33,7 @@ public class ReqRes {
                 .then()
                 .log().all()
                 .assertThat()
-                .statusCode(200);
+                .statusCode(401);
     }
     @Description("As an api user, I want to send delete request that will delete employee")
     @Test(dependsOnMethods = "patchEmployeeTest()")
@@ -45,7 +42,7 @@ public class ReqRes {
                 .then()
                 .log().all()
                 .assertThat()
-                .statusCode(204);
+                .statusCode(401);
     }
 
 

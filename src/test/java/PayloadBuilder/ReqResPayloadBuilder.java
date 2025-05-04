@@ -10,7 +10,7 @@ public class ReqResPayloadBuilder {
      static String jobTitle = TestDataGenerator.job;
      static String companyName = TestDataGenerator.company;
 
-    public static JSONObject createEmployeeResponse() {
+    public static JSONObject createEmployeeObject() {
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("name", employeeName);
@@ -19,7 +19,7 @@ public class ReqResPayloadBuilder {
         return jsonObject;
     }
 
-    public static JSONObject updateEmployeeResponse() {
+    public static JSONObject updateEmployeObject() {
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("name", employeeName);
@@ -29,7 +29,7 @@ public class ReqResPayloadBuilder {
         return jsonObject;
     }
 
-    public static JSONObject PatchEmployeeResponse() {
+    public static JSONObject PatchEmployeeObject() {
 
         String updateName = Faker.instance().name().firstName();
 
