@@ -4,6 +4,7 @@ import PayloadBuilder.OpenWeatherPayloadBuilder;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
+import static Common.Authorisations.openWeather_key;
 import static Common.BasePaths.openWeather_baseUrl;
 import static Common.BasePaths.reqRes_baseUrl;
 import static PayloadBuilder.OpenWeatherPayloadBuilder.createNewWeatherStationObject;
@@ -17,7 +18,7 @@ public class OpenWeatherRequestBuilder {
 
         Response response = given().contentType("application/json")
                 .when()
-                .queryParams("appid", "13b8575623d6b7ed2faac869037ff7b3")
+                .queryParams("appid", openWeather_key)
                 .body(createNewWeatherStationObject())
                 .log()
                 .all()
@@ -34,7 +35,7 @@ public class OpenWeatherRequestBuilder {
 
         Response response = given().contentType("application/json")
                 .when()
-                .queryParams("appid", "13b8575623d6b7ed2faac869037ff7b3")
+                .queryParams("appid", openWeather_key)
                 .body(OpenWeatherPayloadBuilder.updateWeatherStationObject())
                 .log()
                 .all()
@@ -49,7 +50,7 @@ public class OpenWeatherRequestBuilder {
 
         Response response = given().contentType("application/json")
                 .when()
-                .queryParams("appid", "13b8575623d6b7ed2faac869037ff7b3")
+                .queryParams("appid", openWeather_key)
                 .log()
                 .all()
                 .get(openWeather_baseUrl + "/data/3.0/stations/" + stationID)
@@ -64,7 +65,7 @@ public class OpenWeatherRequestBuilder {
 
         Response response = given().contentType("application/json")
                 .when()
-                .queryParams("appid", "13b8575623d6b7ed2faac869037ff7b3")
+                .queryParams("appid", openWeather_key)
                 .log()
                 .all()
                 .delete(openWeather_baseUrl + "/data/3.0/stations/" + stationID)
