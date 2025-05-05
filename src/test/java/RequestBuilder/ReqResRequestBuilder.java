@@ -1,6 +1,9 @@
 package RequestBuilder;
 
+import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
+
+import java.io.File;
 
 import static Common.Authorisations.reqRes_key;
 import static PayloadBuilder.ReqResPayloadBuilder.*;
@@ -23,6 +26,8 @@ public class ReqResRequestBuilder {
                 .extract().response();
 
         employeeNumber = response.jsonPath().getString("id");
+
+        response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(new File("src/test/java/schemas/createEmployee.json")));
 
         return response;
     }
