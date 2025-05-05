@@ -1,19 +1,23 @@
 package PayloadBuilder;
 
+import Common.TestDataGenerator;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.json.simple.JSONObject;
 
 public class OpenWeatherPayloadBuilder {
 
+    static Double longitudeNo = Double.valueOf(TestDataGenerator.longitude);
+    static Double latitudeNo = Double.valueOf(TestDataGenerator.latitude);
+    static int altitudeNo = Integer.valueOf(TestDataGenerator.altitude);
     public static JSONObject createNewWeatherStationObject() {
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("external_id", "Test101");
         jsonObject.put("name", "API Test");
-        jsonObject.put("latitude",50.50 );
-        jsonObject.put("longitude",-155.65 );
-        jsonObject.put("altitude",200 );
+        jsonObject.put("latitude",latitudeNo );
+        jsonObject.put("longitude",longitudeNo );
+        jsonObject.put("altitude",altitudeNo );
 
         return jsonObject;
     }
@@ -22,9 +26,9 @@ public class OpenWeatherPayloadBuilder {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("external_id", "Test101");
         jsonObject.put("name", "Updated Station");
-        jsonObject.put("latitude", -26.2041);
-        jsonObject.put("longitude", 28.0473);
-        jsonObject.put("altitude", 1550);
+        jsonObject.put("latitude", latitudeNo);
+        jsonObject.put("longitude", longitudeNo);
+        jsonObject.put("altitude", altitudeNo);
         return jsonObject;
     }
 
