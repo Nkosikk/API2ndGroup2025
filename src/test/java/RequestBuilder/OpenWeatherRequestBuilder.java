@@ -5,13 +5,14 @@ import org.testng.annotations.Test;
 
 import static Common.BasePaths.openWeather_baseUrl;
 import static Common.BasePaths.reqRes_baseUrl;
+import static PayloadBuilder.OpenWeatherPayloadBuilder.createNewWeatherStationResponse;
 import static PayloadBuilder.ReqResPayloadBuilder.createEmployeeResponse;
 import static io.restassured.RestAssured.given;
 
 public class OpenWeatherRequestBuilder {
     public static String external_id;
 
-    public static Response createNewWeatherStationResponse() {
+    public static Response createNewWeatherStationRequest() {
 
         Response response = given().contentType("application/json")
                 .when()
