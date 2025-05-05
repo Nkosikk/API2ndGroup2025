@@ -4,12 +4,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.json.simple.JSONObject;
 
-
 public class OpenWeatherPayloadBuilder {
-
-    private static final String BASE_URL = "https://api.openweathermap.org";
-    private static final String API_KEY = "1589ee5727295072e2272d60dfc6904";
-
 
     public static JSONObject createNewWeatherStationObject() {
 
