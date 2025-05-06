@@ -12,7 +12,7 @@ public class ReqResRequestBuilder {
 
         return given().contentType("application/json")
                 .when()
-                .body(createEmployeeResponse())
+                 .body(createEmployeeResponse())
                 .log().all()
                 .post(reqRes_baseUrl+"/api/users")
                 .then()
