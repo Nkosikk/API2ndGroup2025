@@ -6,7 +6,7 @@ import org.testng.Assert;
 import java.util.List;
 
 import static Common.BasePaths.openWeather_baseUrl;
-import static Common.BasePaths.restCountries_baseUrl;
+import static common.BasePaths.restCountries_baseUrl;
 import static RequestBuilder.OpenWeatherRequestBuilder.stationID;
 import static common.BasePaths.restCountries_baseUrl;
 import static io.restassured.RestAssured.given;

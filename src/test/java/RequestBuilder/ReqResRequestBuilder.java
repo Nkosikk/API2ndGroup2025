@@ -6,10 +6,11 @@ import io.restassured.response.Response;
 import java.io.File;
 
 import static Common.Authorisations.reqRes_key;
-import static Common.BasePaths.reqRes_baseUrl;
+
 import static PayloadBuilder.ReqResPayloadBuilder.*;
 
 
+import static common.BasePaths.reqRes_baseUrl;
 import static io.restassured.RestAssured.given;
 
 public class ReqResRequestBuilder {
