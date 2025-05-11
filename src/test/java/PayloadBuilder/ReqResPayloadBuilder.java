@@ -13,7 +13,7 @@ public class ReqResPayloadBuilder {
     public static JSONObject createEmployeeResponse() {
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("name", "");
+        jsonObject.put("name", "employeeName");
         jsonObject.put("job", jobTitle);
 
         return jsonObject;
