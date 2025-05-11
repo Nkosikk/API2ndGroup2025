@@ -5,5 +5,4 @@ public class BasePaths {
 
     public static String openWeather_baseUrl = "http://api.openweathermap.org";
 
-
 }
