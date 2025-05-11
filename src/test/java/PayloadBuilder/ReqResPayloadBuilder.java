@@ -1,17 +1,42 @@
 package PayloadBuilder;
 
-import io.restassured.response.Response;
+import com.github.javafaker.Faker;
+import common.TestDataGenerator;
 import org.json.simple.JSONObject;
-import org.testng.annotations.Test;
 
 public class ReqResPayloadBuilder {
+
+    public static String employeeName = TestDataGenerator.name;
+    public static String jobTitle = TestDataGenerator.job;
+    public static String companyName = TestDataGenerator.company;
 
     public static JSONObject createEmployeeResponse(){
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("name","Sibu");
-        jsonObject.put("job","Engineer");
+        jsonObject.put("name", "employeeName");
+        jsonObject.put("job","jobTitle");
 
         return jsonObject;
     }
+    public static JSONObject updateEmployeeResponse() {
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", "employeeName");
+        jsonObject.put("job", "jobTitle");
+        jsonObject.put("Company", "companyName");
+
+        return jsonObject;
+    }
+    public static JSONObject PatchEmployeeResponse() {
+
+        String updateName = Faker.instance().name().firstName();
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", Faker.instance().name().firstName());
+        jsonObject.put("job", " jobTitle");
+        jsonObject.put("Company","companyName");
+
+        return jsonObject;
+    }
+
 }
