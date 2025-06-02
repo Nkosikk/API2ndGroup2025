@@ -9,5 +9,7 @@ public class BasePaths {
 
     public static String openWeather_baseUrl = "http://api.openweathermap.org";
 
+    public static String restCountries_baseUrl = "http://restcountries.com";
+
 
 }

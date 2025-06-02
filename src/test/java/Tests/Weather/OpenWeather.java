@@ -5,6 +5,8 @@ import RequestBuilder.OpenWeatherRequestBuilder;
 import jdk.jfr.Description;
 import org.testng.annotations.Test;
 
+import static RequestBuilder.OpenWeatherRequestBuilder.stationID;
+
 public class OpenWeather {
     @Test
     public void testWeatherStation() {
@@ -16,7 +18,8 @@ public class OpenWeather {
                 .assertThat()
                 .statusCode(201)
                 .statusLine("HTTP/1.1 201 Created")
-                .body("name", org.hamcrest.Matchers.equalToIgnoringCase(OpenWeatherPayloadBuilder.weatherStation));
+                .body("name", org.hamcrest.Matchers.equalToIgnoringCase(OpenWeatherPayloadBuilder.weatherStation))
+                .body("external_id", org.hamcrest.Matchers.equalToIgnoringCase(OpenWeatherPayloadBuilder.externalID));
 
     }
 
@@ -55,5 +58,18 @@ public class OpenWeather {
                 .assertThat()
                 .statusCode(204)
                 .statusLine("HTTP/1.1 204 No Content");
+    }
+
+    @Description("Negative testing to prove that the weather station is deleted")
+    @Test(dependsOnMethods = "DeleteWeatherStationTests()")
+    public void checkDeletedStation() {
+        OpenWeatherRequestBuilder.DeleteWeatherStationResponse()
+                .then()
+                .log()
+                .all()
+                .assertThat()
+                .statusCode(403)
+                .statusLine("HTTP/1.1 403 Forbidden")
+                .body("ID", org.hamcrest.Matchers.equalToIgnoringCase(stationID));
     }
 }
